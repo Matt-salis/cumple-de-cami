@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
+import { Accents } from "./components/Accents.jsx";
 import { Clapper } from "./components/Clapper.jsx";
 import { Confirmation } from "./components/Confirmation.jsx";
 import { Gate } from "./components/Gate.jsx";
 import { Hero } from "./components/Hero.jsx";
 import { VideoBlock } from "./components/VideoBlock.jsx";
 import { eventConfig } from "./config/event.js";
+import { publicUrl } from "./lib/publicUrl.js";
 
-const PORTRAITS = ["/fotos/cami-1.png", "/fotos/cami-2.png", "/fotos/cami-3.png", "/fotos/cami-4.png"];
+const PORTRAITS = ["fotos/cami-1.png", "fotos/cami-2.png", "fotos/cami-3.png", "fotos/cami-4.png"].map(
+  publicUrl,
+);
 
 function Portraits({ sources }) {
   return (
@@ -40,6 +44,7 @@ export default function App() {
         </header>
         <main>
           <Hero firstName={guest?.firstName || ""} />
+          <Accents />
           <Portraits sources={PORTRAITS} />
           <VideoBlock />
           <Confirmation firstName={guest?.firstName || ""} lastName={guest?.lastName || ""} />

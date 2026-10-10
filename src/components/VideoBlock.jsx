@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { eventConfig } from "../config/event.js";
 import { mediaExists } from "../lib/api.js";
+import { publicUrl } from "../lib/publicUrl.js";
 
 export function VideoBlock() {
   const videoRef = useRef(null);
@@ -48,8 +49,8 @@ export function VideoBlock() {
             {videoReady ? (
               <video
                 ref={videoRef}
-                src={eventConfig.videoSrc}
-                poster={posterReady ? eventConfig.videoPoster : undefined}
+                src={publicUrl(eventConfig.videoSrc)}
+                poster={posterReady ? publicUrl(eventConfig.videoPoster) : undefined}
                 playsInline
                 preload="metadata"
                 controls={playing}
