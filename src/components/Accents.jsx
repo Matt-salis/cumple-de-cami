@@ -1,6 +1,10 @@
 import { publicUrl } from "../lib/publicUrl.js";
 
-const CUTS = [{ src: "fotos/brunch-bowls.jpg", note: "Yogurt.", tilt: "tilt-r" }];
+const CUTS = [
+  { src: "acentos/cafe.jpg", note: "Café.", tilt: "tilt-l" },
+  { src: "acentos/medialunas.jpg", note: "Medialunas.", tilt: "tilt-r" },
+  { src: "fotos/brunch-bowls.jpg", note: "Yogurt.", tilt: "tilt-l" },
+];
 
 export function Accents() {
   return (

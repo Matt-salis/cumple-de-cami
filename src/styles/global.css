@@ -263,8 +263,9 @@ h2 {
 }
 
 .cutouts {
-  grid-template-columns: minmax(0, 240px);
-  width: min(280px, calc(100% - 40px));
+  grid-template-columns: repeat(3, minmax(0, 150px));
+  gap: 14px 10px;
+  width: min(520px, calc(100% - 32px));
 }
 
 .portraits {
@@ -616,8 +617,9 @@ a.choice {
   }
 
   .cutouts {
-    grid-template-columns: minmax(0, 260px);
-    width: min(300px, 100%);
+    grid-template-columns: repeat(3, 160px);
+    gap: 22px;
+    width: min(560px, 100%);
     padding-bottom: 48px;
   }
 
