@@ -263,9 +263,8 @@ h2 {
 }
 
 .cutouts {
-  grid-template-columns: repeat(2, minmax(0, 150px));
-  gap: 16px 12px;
-  width: min(360px, 100%);
+  grid-template-columns: minmax(0, 240px);
+  width: min(280px, calc(100% - 40px));
 }
 
 .portraits {
@@ -485,11 +484,15 @@ h2 {
   gap: 10px;
 }
 
-.choices legend {
+.choices-label {
   margin-bottom: 10px;
-  padding: 0;
   font-size: 1rem;
   font-weight: 700;
+}
+
+a.choice {
+  text-decoration: none;
+  color: inherit;
 }
 
 .choice {
@@ -613,9 +616,8 @@ h2 {
   }
 
   .cutouts {
-    grid-template-columns: repeat(4, 148px);
-    gap: 18px;
-    width: min(720px, 100%);
+    grid-template-columns: minmax(0, 260px);
+    width: min(300px, 100%);
     padding-bottom: 48px;
   }
 
@@ -627,13 +629,6 @@ h2 {
 }
 
 @media (max-width: 380px) {
-  .cutouts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
   .cut figcaption,
   .scribble {
     font-size: 1.15rem;
