@@ -263,9 +263,9 @@ h2 {
 }
 
 .cutouts {
-  grid-template-columns: repeat(3, minmax(0, 150px));
+  grid-template-columns: repeat(2, minmax(0, 150px));
   gap: 16px 12px;
-  width: min(560px, 100%);
+  width: min(360px, 100%);
 }
 
 .portraits {
@@ -613,8 +613,9 @@ h2 {
   }
 
   .cutouts {
-    grid-template-columns: repeat(3, 160px);
-    gap: 22px;
+    grid-template-columns: repeat(4, 148px);
+    gap: 18px;
+    width: min(720px, 100%);
     padding-bottom: 48px;
   }
 
@@ -627,7 +628,7 @@ h2 {
 
 @media (max-width: 380px) {
   .cutouts {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
     padding-left: 12px;
     padding-right: 12px;

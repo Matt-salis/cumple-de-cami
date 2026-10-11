@@ -1,7 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { eventConfig } from "../config/event.js";
-import { mediaExists } from "../lib/api.js";
 import { publicUrl } from "../lib/publicUrl.js";
+
+async function canRead(path) {
+  if (!path) return false;
+  const url = publicUrl(path);
+  try {
+    let response = await fetch(url, { method: "HEAD" });
+    if (response.ok) return true;
+    if (response.status === 405 || response.status === 501) {
+      response = await fetch(url, { headers: { Range: "bytes=0-1" } });
+      return response.ok || response.status === 206;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
 
 export function VideoBlock() {
   const videoRef = useRef(null);
@@ -12,11 +27,11 @@ export function VideoBlock() {
 
   useEffect(() => {
     let ignore = false;
-    mediaExists(eventConfig.videoSrc).then((exists) => {
+    canRead(eventConfig.videoSrc).then((exists) => {
       if (!ignore) setVideoReady(exists);
     });
     if (eventConfig.videoPoster) {
-      mediaExists(eventConfig.videoPoster).then((exists) => {
+      canRead(eventConfig.videoPoster).then((exists) => {
         if (!ignore) setPosterReady(exists);
       });
     }
@@ -53,10 +68,11 @@ export function VideoBlock() {
                 poster={posterReady ? publicUrl(eventConfig.videoPoster) : undefined}
                 playsInline
                 preload="metadata"
-                controls={playing}
+                controls
                 onError={() => {
                   setVideoReady(false);
                   setPlaying(false);
+                  setPlayError("No se pudo cargar el video.");
                 }}
               />
             ) : null}
@@ -74,9 +90,9 @@ export function VideoBlock() {
               <div className="cover">
                 <button type="button" className="play" disabled>
                   <span className="play-icon" aria-hidden="true" />
-                  <span className="sr-only">Toma próximamente</span>
+                  <span className="sr-only">No se pudo cargar el video.</span>
                 </button>
-                <p className="soon">Toma próximamente</p>
+                <p className="soon">No se pudo cargar el video.</p>
               </div>
             ) : null}
           </div>

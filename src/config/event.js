@@ -20,7 +20,7 @@ export const eventConfig = {
   menu: "Yogurt bowls, café, medialunas, tostadas y otras delicias de brunch.",
   weatherPlan:
     "Si el clima acompaña, nos quedamos en la terraza. Si no, la producción mueve la mesa a un lugar cubierto.",
-  videoSrc: "/videos/casting-cami.mp4",
+  videoSrc: "/videos/video-arru.mp4",
   videoPoster: "/videos/casting-cami-poster.jpg",
   intro: "Café y brunch de festejo.",
   invite: "Confirmá si venís. La respuesta llega por mail.",
